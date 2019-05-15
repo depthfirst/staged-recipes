@@ -1,0 +1,49 @@
+{% set name = "anchor-exp" %}
+{% set version = "0.0.0.5" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/anchor_exp/anchor_exp-{{ version }}.tar.gz
+  sha256: 9bcfe45472e9536953b5ddd3b509ea6e00c77f360daec9bc8e53a66274bf5c4c
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv "
+
+requirements:
+  host:
+    - lime
+    - numpy
+    - pip
+    - pip
+    - python
+    - scikit-learn
+    - scipy
+    - spacy
+  run:
+    - lime
+    - numpy
+    - python
+    - scikit-learn
+    - scipy
+    - spacy
+
+test:
+  imports:
+    - anchor
+
+about:
+  home: http://github.com/marcotcr/anchor
+  license: BSD
+  license_family: BSD
+  license_file: 
+  summary: Anchor explanations for machine learning models
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - depthfirst
